@@ -61,17 +61,17 @@
                         @foreach (var month in Model.MonthList)
                         {
                             <tr>
-                                <td>@month.Name</td>
+                                <td><b>@month.Name</b></td>
                                 @foreach (var state in Model.StateList)
                                 {
                                     <td class="text-right">
                                         @if (Model.RegionSaleList.Where(rs => rs.MonthId == month.Id && rs.StateId == state.Id).Count() > 0)
                                         {
-                                            @Model.RegionSaleList.Where(rs => rs.MonthId == month.Id && rs.StateId == state.Id).First().Sales
+                                         @Model.RegionSaleList.Where(rs => rs.MonthId == month.Id && rs.StateId == state.Id).First().Sales
                                         }
                                         else
                                         {
-                                            @Model.RegionSaleList.Where(rs => rs.MonthId == month.Id && rs.StateId == state.Id).Count()
+                                         @Model.RegionSaleList.Where(rs => rs.MonthId == month.Id && rs.StateId == state.Id).Count()
                                         }
                                     </td>
                                 }
@@ -80,11 +80,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><b>Avg.</b></td>
+                            <td><b>Average.</b></td>
                             @foreach (var stateAverage in Model.AverageList)
                             {
                                 <td class="text-right">
-                                    @stateAverage
+                                    <b> @stateAverage</b>
                                 </td>
                             }
                         </tr>
@@ -92,18 +92,18 @@
                             <td><b>Total.</b></td>
                             @foreach (var stateTotal in Model.TotalList)
                             {
-                                <td class="text-right">
-                                    @stateTotal
-                                </td>
+                        <td class="text-right">
+                           <b> @stateTotal</b>
+                        </td>
                             }
                         </tr>
                         <tr>
-                            <td><b>Total.</b></td>
+                            <td><b>Median.</b></td>
                             @foreach (var stateMedian in Model.MedianList)
                             {
-                                <td class="text-right">
-                                    @stateMedian
-                                </td>
+                        <td class="text-right">
+                           <b> @stateMedian</b>
+                        </td>
                             }
                         </tr>
                     </tfoot>
